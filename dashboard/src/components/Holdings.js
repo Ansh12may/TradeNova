@@ -23,10 +23,11 @@ const Holdings = () => {
     
     const token = localStorage.getItem("token");
 
-    axios
-      .get("http://localhost:8080/allHoldings", {
-        headers: { Authorization: `Bearer ${token}` },
-      })
+    axios.get(
+  `${process.env.REACT_APP_API_URL}/allHoldings`,
+  {
+    headers: { Authorization: `Bearer ${token}` },
+  })
       .then((res) => {
         setAllHoldings(res.data);
         setLoading(false);

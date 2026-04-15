@@ -22,7 +22,10 @@ function Login() {
 
     try {
       setLoading(true);
-      const res = await axios.post("http://localhost:8080/login", formData);
+      const res = await axios.post(
+  `${process.env.REACT_APP_API_URL}/login`,
+  formData
+);
 
       // Save token + user via AuthContext
       login(res.data.token, res.data.user);

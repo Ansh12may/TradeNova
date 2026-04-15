@@ -10,10 +10,12 @@ const Positions = () => {
     //  Send auth token — backend requires auth on /allPositions
     const token = localStorage.getItem("token");
 
-    axios
-      .get("http://localhost:8080/allPositions", {
-        headers: { Authorization: `Bearer ${token}` },
-      })
+    axios.get(
+  `${process.env.REACT_APP_API_URL}/allPositions`,
+  {
+    headers: { Authorization: `Bearer ${token}` },
+  }
+)
       .then((res) => {
         setAllPositions(res.data);
         setLoading(false);

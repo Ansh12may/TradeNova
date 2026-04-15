@@ -28,13 +28,13 @@ const BuyActionWindow = ({ uid }) => {
 
       //  Added auth header — /newOrder now requires authentication
       await axios.post(
-        "http://localhost:8080/newOrder",
-        {
-          name: uid,
-          qty: Number(stockQuantity),
-          price: Number(stockPrice),
-          mode,
-        },
+  `${process.env.REACT_APP_API_URL}/newOrder`,
+  {
+    name: uid,
+    qty: Number(stockQuantity),
+    price: Number(stockPrice),
+    mode,
+  },
         {
           headers: { Authorization: `Bearer ${token}` },
         }
