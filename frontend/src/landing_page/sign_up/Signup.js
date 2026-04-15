@@ -49,15 +49,18 @@ function Signup() {
       setLoading(true);
 
       // Register
-      await axios.post("http://localhost:8080/register", { name, email, password });
+      await axios.post(
+  `${process.env.REACT_APP_API_URL}/register`,
+  { name, email, password }
+);
 
       setSuccess("Account created! Redirecting to login...");
 
-      // ✅ FIXED: redirect to dashboard login (port 3001 if dashboard runs there)
+      //  redirect to dashboard login (port 3001 if dashboard runs there)
       // Adjust the URL to wherever your dashboard app is hosted
-      setTimeout(() => {
-        window.location.href = "http://localhost:3001/login";
-      }, 1500);
+   setTimeout(() => {
+  window.location.href = process.env.REACT_APP_DASHBOARD_URL;
+}, 1500);
     } catch (err) {
       setError(err.response?.data?.message || "Signup failed");
     } finally {
@@ -115,9 +118,10 @@ function Signup() {
 
         <p style={{ marginTop: "16px", fontSize: "14px", color: "#666" }}>
           Already have an account?{" "}
-          <a href="http://localhost:3001/login" style={{ color: "#387ed1" }}>
-            Log in
-          </a>
+          {/* check this */}
+     <a href={`${process.env.REACT_APP_DASHBOARD_URL}/login`}>
+  Log in
+</a>
         </p>
       </div>
     </div>

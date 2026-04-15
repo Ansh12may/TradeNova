@@ -27,17 +27,20 @@ function Login() {
     try {
       setLoading(true);
 
-      const res = await axios.post("http://localhost:8080/login", {
-        email,
-        password,
-      });
+      const res = await axios.post(
+  `${process.env.REACT_APP_API_URL}/login`,
+  {
+    email,
+    password,
+  }
+);
 
       // Store token AND user info for dashboard greeting
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("user", JSON.stringify(res.data.user));
 
       // Redirect to dashboard (runs on port 3001)
-      window.location.href = "http://localhost:3001";
+      window.location.href = process.env.REACT_APP_DASHBOARD_URL;
     } catch (err) {
       setError(err.response?.data?.message || "Login failed. Try again.");
     } finally {
