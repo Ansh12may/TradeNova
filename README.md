@@ -1,43 +1,46 @@
 # TradeNova — ML-Powered Portfolio Risk Engine
 
-TradeNova is an AI/ML-powered portfolio analytics and risk analysis platform designed to evaluate stock and portfolio risk using quantitative market features and machine learning models.
+TradeNova is an AI/ML-powered portfolio risk analysis platform that uses historical market data, quantitative feature engineering, statistical volatility analysis, and machine learning to estimate stock and portfolio risk.
 
-The project focuses on building and deploying an end-to-end **ML inference system**, rather than simply creating a stock trading UI.
+The primary focus of this project is the **ML risk engine and its production deployment**. The trading dashboard provides the interface through which users interact with the deployed ML system.
 
-##  Key Features
+##  Live Demo
 
--  Stock-level risk analysis
--  Portfolio-level risk assessment
--  Machine learning based risk prediction
--  Technical and statistical market features
--  Dedicated FastAPI ML inference service
--  Node.js backend acting as an API gateway
--  React dashboard for visualizing ML results
--  Production deployment with independent services
+**TradeNova Frontend:**  
+https://tradenova-frontend-b2qs.onrender.com
+
+**Backend API:**  
+https://tradenova-backend-7ovk.onrender.com
+
+**ML Service:**  
+https://tradenova-ml-service.onrender.com
+
+> The system is deployed as separate frontend, backend, and ML services.
 
 ---
 
-##  AI / ML Engineering
+##  AI / ML Pipeline
 
-The core of TradeNova is a separate ML service responsible for risk analysis and inference.
-
-### ML Pipeline
+TradeNova follows an end-to-end machine learning pipeline:
 
 ```text
-Market Data
-    ↓
-Data Preprocessing
-    ↓
+Historical Market Data
+        ↓
+Data Cleaning & Preprocessing
+        ↓
 Feature Engineering
-    ↓
-Statistical / Technical Features
-    ↓
-ML Risk Model
-    ↓
-Risk Score / Classification
-    ↓
-FastAPI Inference API
-    ↓
-TradeNova Backend
-    ↓
-Dashboard
+        ↓
+Statistical Volatility Analysis
+        ↓
+Feature Preparation
+        ↓
+LightGBM Risk Model
+        ↓
+Risk Prediction
+        ↓
+FastAPI Inference Service
+        ↓
+Backend API
+        ↓
+Risk Dashboard
+
