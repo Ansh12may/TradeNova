@@ -1,0 +1,190 @@
+.order-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(16, 24, 40, .42);
+  backdrop-filter: blur(3px);
+}
+
+.buy-window {
+  width: min(460px, 100%);
+  overflow: hidden;
+  border: 1px solid #e2e7ee;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 24px 70px rgba(15, 23, 42, .24);
+  color: #172033;
+}
+
+.order-window-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 20px 20px 14px;
+  border-bottom: 1px solid #edf0f4;
+}
+
+.order-window-header span {
+  color: #8a94a6;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+
+.order-window-header h3 {
+  margin: 5px 0 0;
+  font-size: 22px;
+}
+
+.order-window-header button {
+  border: 0;
+  background: transparent;
+  color: #687386;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.order-mode-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 16px 20px 4px;
+}
+
+.order-mode-toggle button {
+  border: 1px solid #dfe5ec;
+  border-radius: 8px;
+  padding: 10px;
+  background: #f7f8fa;
+  color: #596579;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.order-mode-toggle .active-buy {
+  border-color: #387ed1;
+  background: #eef5ff;
+  color: #387ed1;
+}
+
+.order-mode-toggle .active-sell {
+  border-color: #e34b4b;
+  background: #fff1f1;
+  color: #d63e3e;
+}
+
+.buy-window .inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding: 14px 20px;
+}
+
+.buy-window fieldset {
+  min-width: 0;
+  border: 1px solid #dfe5ec;
+  border-radius: 8px;
+  padding: 0 10px 8px;
+}
+
+.buy-window fieldset:focus-within {
+  border-color: #387ed1;
+}
+
+.buy-window legend {
+  padding: 0 5px;
+  color: #8a94a6;
+  font-size: 11px;
+}
+
+.buy-window input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #172033;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.order-summary-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 20px;
+  padding: 12px 0;
+  border-top: 1px solid #edf0f4;
+  border-bottom: 1px solid #edf0f4;
+  color: #69758a;
+  font-size: 13px;
+}
+
+.order-summary-line strong {
+  color: #172033;
+}
+
+.order-message {
+  margin: 10px 20px 0;
+  font-size: 12px;
+}
+
+.order-message.success { color: #148052; }
+.order-message.error { color: #d64545; }
+
+.buy-window .buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 20px 20px;
+}
+
+.buy-window .buttons > span {
+  color: #9aa5b7;
+  font-size: 10px;
+  line-height: 1.35;
+}
+
+.buy-window .buttons > div {
+  display: flex;
+  gap: 8px;
+}
+
+.buy-window .btn {
+  min-width: 82px;
+  border: 0;
+  border-radius: 7px;
+  padding: 9px 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.buy-window .btn:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+}
+
+.buy-window .btn-blue { background: #387ed1; color: #fff; }
+.buy-window .btn-red { background: #e34b4b; color: #fff; }
+.buy-window .btn-grey { background: #eef1f5; color: #4d586b; }
+
+@media (max-width: 520px) {
+  .buy-window .buttons {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .buy-window .buttons > div {
+    width: 100%;
+  }
+
+  .buy-window .btn {
+    flex: 1;
+  }
+}

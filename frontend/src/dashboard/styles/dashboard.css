@@ -1,0 +1,898 @@
+/* =========================================
+   DASHBOARD ROOT
+========================================= */
+
+
+.dashboard-page {
+  width: 100%;
+  min-height: 100vh;
+}
+
+
+/* =========================================
+   TOPBAR
+========================================= */
+
+.dashboard-page .topbar-container {
+  width: 100%;
+  height: 10vh;
+
+  display: flex;
+  align-items: center;
+
+  box-shadow: 0 0 4px 2px rgb(236, 235, 235);
+
+  box-sizing: border-box;
+  position: relative;
+  z-index: 10;
+}
+
+.dashboard-page .indices-container {
+  flex-basis: 32%;
+  height: 100%;
+
+  padding: 10px 20px;
+
+  border-right: 1px solid rgb(224, 224, 224);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.dashboard-page .nifty,
+.dashboard-page .sensex {
+  flex-basis: 40%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.dashboard-page .nifty > *,
+.dashboard-page .sensex > * {
+  margin-right: 8px;
+}
+
+.dashboard-page .index {
+  margin: 0;
+
+  font-size: 0.8rem;
+  font-weight: 500;
+
+  text-transform: uppercase;
+
+  color: rgb(97, 97, 97);
+
+  white-space: nowrap;
+}
+
+.dashboard-page .index-points {
+  margin: 0;
+
+  font-size: 0.8rem;
+  font-weight: 500;
+
+  color: rgb(223, 73, 73);
+}
+
+.dashboard-page .percent {
+  margin: 0;
+
+  font-size: 0.8rem;
+
+  color: rgb(146, 146, 146);
+}
+
+
+/* =========================================
+   MENU
+========================================= */
+
+.dashboard-page .menu-container {
+  flex: 1;
+
+  height: 100%;
+
+  padding: 10px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+}
+
+.dashboard-page .menu-container img {
+  width: 50px !important;
+  height: auto;
+}
+
+.dashboard-page .menus {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.dashboard-page .menus ul {
+  list-style: none;
+
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+}
+
+.dashboard-page .menus li {
+  display: inline-block;
+
+  margin-right: 30px;
+}
+
+.dashboard-page .menu {
+  margin: 0;
+
+  font-size: 0.8rem;
+  font-weight: 400;
+
+  color: rgb(70, 70, 70);
+}
+
+.dashboard-page .menu.selected {
+  color: rgb(245, 104, 52);
+}
+
+.dashboard-page .menu:hover {
+  color: rgb(245, 104, 52);
+}
+
+
+/* =========================================
+   PROFILE
+========================================= */
+
+.dashboard-page .profile {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  margin-left: 20px;
+
+  cursor: pointer;
+}
+
+.dashboard-page .profile .avatar {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-right: 8px;
+
+  border-radius: 50%;
+
+  background: rgb(252, 229, 252);
+  color: rgb(221, 139, 221);
+
+  font-size: 0.7rem;
+}
+
+.dashboard-page .profile .username {
+  margin: 0;
+
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+
+
+/* =========================================
+   DASHBOARD BODY
+========================================= */
+
+.dashboard-page .dashboard-container {
+  width: 100%;
+  height: 90vh;
+
+  display: flex;
+  align-items: stretch;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.dashboard-page .content {
+  flex: 1;
+
+  height: 100%;
+
+  overflow-y: auto;
+
+  padding: 3% 2%;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   WATCHLIST
+========================================= */
+
+.dashboard-page .watchlist-container {
+  flex: 0 0 32%;
+
+  width: 32%;
+  height: 100%;
+
+  box-sizing: border-box;
+
+  box-shadow: 0 0 4px 1px rgb(236, 235, 235);
+
+  overflow-y: auto;
+
+  position: relative;
+}
+
+
+/* =========================================
+   SEARCH
+========================================= */
+
+.dashboard-page .search-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  position: relative;
+}
+
+.dashboard-page .search {
+  width: 100%;
+  height: 50px;
+
+  border: none;
+  border-bottom: 0.8px solid rgb(235, 234, 234);
+
+  padding: 15px 20px;
+
+  font-size: 0.9rem;
+
+  color: rgb(70, 70, 70);
+
+  box-sizing: border-box;
+}
+
+.dashboard-page .search:focus {
+  outline: none;
+}
+
+
+/* =========================================
+   WATCHLIST
+========================================= */
+
+.dashboard-page .list {
+  list-style-type: none;
+
+  margin: 0;
+  padding: 0 0 12%;
+}
+
+.dashboard-page .list li {
+  position: relative;
+
+  padding: 12px 10px 12px 14px;
+
+  border-bottom: 0.8px solid rgb(235, 234, 234);
+}
+
+.dashboard-page .item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-weight: 300;
+  font-size: 0.8rem;
+
+  position: relative;
+}
+
+.dashboard-page .item-info {
+  display: flex;
+  align-items: center;
+}
+
+.dashboard-page .item-info > * {
+  margin-right: 8px;
+}
+
+.dashboard-page .item-info span:nth-child(1) {
+  color: rgb(141, 141, 141);
+}
+
+.dashboard-page .item-info span:nth-child(2),
+.dashboard-page .item-info span:nth-child(3) {
+  color: rgb(223, 73, 73);
+}
+
+
+/* =========================================
+   WATCHLIST ACTIONS
+========================================= */
+
+.dashboard-page .actions {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: none;
+
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.dashboard-page .list li:hover {
+  background-color: #f3f3f3;
+}
+
+.dashboard-page .list li:hover > .actions {
+  display: flex;
+}
+
+.dashboard-page .actions button {
+  width: 40px;
+  height: 30px;
+
+  margin-right: 8px;
+
+  border-radius: 4px;
+
+  cursor: pointer;
+}
+
+.dashboard-page .buy {
+  background: #4184f3;
+  color: white;
+
+  border: 1px solid #4184f3;
+}
+
+.dashboard-page .sell {
+  background: #ff5722;
+  color: white;
+
+  border: 1px solid #ff5722;
+}
+
+
+/* =========================================
+   WATCHLIST BOTTOM
+========================================= */
+
+.dashboard-page .watchlist-number {
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+
+  background: #fff;
+
+  border-top: 1px solid rgb(231, 231, 231);
+}
+
+.dashboard-page .watchlist-number ul {
+  list-style: none;
+
+  margin: 0;
+  padding: 0;
+}
+
+.dashboard-page .watchlist-number li {
+  display: inline-block;
+
+  padding: 10px 20px;
+
+  border-right: 1px solid rgb(231, 231, 231);
+}
+/* ============================================================
+   TRADE NOVA — UPDATED DASHBOARD NAVIGATION
+   ============================================================ */
+
+.dashboard-logo-link {
+  display: flex;
+  align-items: center;
+}
+
+.menu-link {
+  display: block;
+  padding: 7px 10px;
+  border-radius: 7px;
+  color: #424a57;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background .18s ease, color .18s ease;
+}
+
+.menu-link:hover {
+  background: #f3f6fa;
+  color: #387ed1;
+}
+
+.menu-link.active {
+  color: #387ed1;
+  background: #eef5ff;
+  font-weight: 600;
+}
+
+.profile {
+  position: relative;
+}
+
+.profile-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  padding: 7px;
+  border-radius: 8px;
+}
+
+.profile-trigger:hover {
+  background: #f5f7fa;
+}
+
+.profile-copy {
+  min-width: 0;
+}
+
+.profile-copy .username {
+  margin: 0;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.profile-copy span {
+  display: block;
+  margin-top: 2px;
+  color: #9aa5b7;
+  font-size: 11px;
+}
+
+.profile-dropdown {
+  position: absolute;
+  z-index: 1000;
+  right: 0;
+  bottom: calc(100% + 8px);
+  width: 190px;
+  padding: 6px;
+  background: #fff;
+  border: 1px solid #e5e9ef;
+  border-radius: 10px;
+  box-shadow: 0 12px 32px rgba(24, 39, 58, .14);
+}
+
+.profile-dropdown button,
+.profile-dropdown a {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 10px;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: #354052;
+  text-decoration: none;
+  font-size: 13px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.profile-dropdown button:hover,
+.profile-dropdown a:hover {
+  background: #f4f7fb;
+}
+
+.profile-dropdown .logout-item {
+  color: #d64545;
+}
+
+.profile-dropdown-divider {
+  height: 1px;
+  margin: 5px 2px;
+  background: #edf0f4;
+}
+
+.risk-page-container {
+  width: 100%;
+  min-width: 0;
+}
+
+@media (max-width: 1100px) {
+  .portfolio-overview-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .portfolio-overview-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ============================================================
+   SHARED MODERN DASHBOARD PAGES
+   ============================================================ */
+
+.page-section {
+  padding: 28px;
+  color: #172033;
+}
+
+.page-section-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+.page-eyebrow {
+  display: block;
+  margin-bottom: 6px;
+  color: #7c8799;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.page-section-header h2 {
+  margin: 0;
+  font-size: 26px;
+  letter-spacing: -.5px;
+}
+
+.page-section-header p {
+  margin: 6px 0 0;
+  color: #778399;
+  font-size: 13px;
+}
+
+.primary-action,
+.secondary-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border-radius: 8px;
+  padding: 9px 13px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.primary-action {
+  border: 1px solid #387ed1;
+  background: #387ed1;
+  color: #fff;
+}
+
+.secondary-action {
+  border: 1px solid #dfe5ec;
+  background: #fff;
+  color: #4c586b;
+}
+
+.page-state {
+  min-height: 240px;
+  display: grid;
+  place-items: center;
+  color: #7b8798;
+  font-size: 13px;
+}
+
+.error-state,
+.inline-error {
+  color: #d64545;
+}
+
+.inline-error,
+.orders-info-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin-bottom: 18px;
+  padding: 12px 14px;
+  border: 1px solid #f0d5d5;
+  border-radius: 9px;
+  background: #fff7f7;
+  font-size: 12px;
+}
+
+.orders-info-banner {
+  color: #7c5860;
+}
+
+.orders-info-banner code {
+  margin: 0 3px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+}
+
+.summary-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-bottom: 22px;
+  border: 1px solid #e6eaf0;
+  border-radius: 12px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.summary-strip > div {
+  padding: 18px 20px;
+  border-right: 1px solid #edf0f4;
+}
+
+.summary-strip > div:last-child { border-right: 0; }
+.summary-strip span { display: block; color: #8792a3; font-size: 11px; }
+.summary-strip strong { display: block; margin-top: 7px; font-size: 19px; }
+
+.chart-card {
+  padding: 20px;
+  border: 1px solid #e6eaf0;
+  border-radius: 12px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.chart-card h3 { margin: 0; font-size: 15px; }
+.chart-card > p { margin: 5px 0 18px; color: #8a94a6; font-size: 12px; }
+
+.summary-chart-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 16px;
+}
+
+.summary-doughnut-card { min-height: 360px; }
+
+.snapshot-list { display: grid; gap: 14px; margin-top: 26px; }
+.snapshot-row { display: grid; grid-template-columns: 90px 1fr 48px; align-items: center; gap: 10px; font-size: 11px; }
+.snapshot-progress { height: 6px; overflow: hidden; border-radius: 999px; background: #edf1f6; }
+.snapshot-progress span { display: block; height: 100%; border-radius: inherit; background: #387ed1; }
+
+.simple-table-wrapper {
+  overflow-x: auto;
+  border: 1px solid #e6eaf0;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.simple-table { width: 100%; border-collapse: collapse; min-width: 760px; }
+.simple-table th { padding: 13px 15px; text-align: left; background: #f8fafc; color: #7d899a; font-size: 10px; text-transform: uppercase; letter-spacing: .6px; }
+.simple-table td { padding: 15px; border-top: 1px solid #edf0f4; color: #526075; font-size: 12px; }
+.simple-table tbody tr:hover { background: #fbfcfe; }
+
+.empty-page-state {
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #8994a6;
+  text-align: center;
+  font-size: 13px;
+}
+
+.empty-page-state strong { color: #3b4658; }
+
+.order-side,
+.order-status {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 5px 8px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.order-side.buy { background: #ebfaf2; color: #148052; }
+.order-side.sell { background: #fff0f0; color: #d64545; }
+.order-status { background: #eef5ff; color: #387ed1; }
+
+.profit { color: #148052 !important; }
+.loss { color: #d64545 !important; }
+
+@media (max-width: 900px) {
+  .summary-strip { grid-template-columns: repeat(2, 1fr); }
+  .summary-strip > div:nth-child(2) { border-right: 0; }
+  .summary-chart-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .page-section { padding: 18px; }
+  .page-section-header { flex-direction: column; }
+  .summary-strip { grid-template-columns: 1fr; }
+  .summary-strip > div { border-right: 0; border-bottom: 1px solid #edf0f4; }
+  .summary-strip > div:last-child { border-bottom: 0; }
+}
+
+.funds-not-ready {
+  display: flex;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid #dbe8f8;
+  border-radius: 11px;
+  background: #f6faff;
+  color: #426080;
+  font-size: 12px;
+}
+
+.funds-not-ready strong { display: block; color: #274b73; }
+.funds-not-ready p { margin: 4px 0 0; line-height: 1.5; }
+
+.funds-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 18px 0;
+}
+
+.funds-card {
+  padding: 20px;
+  border: 1px solid #e6eaf0;
+  border-radius: 11px;
+  background: #fff;
+}
+
+.funds-card span,
+.funds-card small { display: block; color: #8490a2; font-size: 11px; }
+.funds-card strong { display: block; margin: 8px 0 4px; font-size: 25px; }
+
+.funds-actions { display: flex; gap: 10px; margin-top: 20px; }
+.fund-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #387ed1;
+  border-radius: 8px;
+  padding: 10px 14px;
+  background: #387ed1;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+.fund-action.secondary { background: #fff; color: #387ed1; }
+.funds-notice { margin-top: 14px; color: #a05c18; font-size: 12px; }
+
+@media (max-width: 700px) { .funds-grid { grid-template-columns: 1fr; } }
+
+
+/* ============================= */
+/* PROFILE MENU */
+/* ============================= */
+
+.profile {
+  position: relative;
+}
+
+.profile-trigger {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 10px;
+  color: inherit;
+}
+
+.profile-trigger:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.profile-copy {
+  text-align: left;
+}
+
+.profile-copy .username {
+  margin: 0;
+  font-weight: 600;
+}
+
+.profile-copy span {
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+/* Dropdown */
+
+.profile-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+
+  width: 210px;
+
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+
+  padding: 8px;
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+
+  z-index: 9999;
+}
+
+.profile-dropdown button,
+.profile-dropdown a {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 12px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: transparent;
+
+  color: #1f2937;
+  text-decoration: none;
+
+  font-size: 14px;
+
+  cursor: pointer;
+
+  box-sizing: border-box;
+}
+
+.profile-dropdown button:hover,
+.profile-dropdown a:hover {
+  background: #f3f4f6;
+}
+
+.profile-dropdown-divider {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 6px 0;
+}
+
+.profile-dropdown .logout-item {
+  color: #dc2626;
+}
+
+.profile-dropdown .logout-item:hover {
+  background: #fef2f2;
+}

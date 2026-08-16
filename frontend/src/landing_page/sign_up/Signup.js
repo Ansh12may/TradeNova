@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+import api from "../../dashboard/services/api";
 import "./Auth.css";
 
-function Signup() {
+const Signup = () => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -17,52 +17,57 @@ function Signup() {
   const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = (event) => {
+    setFormData((current) => ({
+      ...current,
+      [event.target.name]: event.target.value,
+    }));
   };
 
-  const isStrongPassword = (password) => {
-    return (
-      password.length >= 8 &&
-      /[A-Z]/.test(password) &&
-      /[0-9]/.test(password) &&
-      /[!@#$%^&*]/.test(password)
-    );
-  };
+  const isStrongPassword = (password) =>
+    password.length >= 8 &&
+    /[A-Z]/.test(password) &&
+    /[0-9]/.test(password) &&
+    /[!@#$%^&*]/.test(password);
 
-  const handleSignup = async (e) => {
-    e.preventDefault();
+  const handleSignup = async (event) => {
+    event.preventDefault();
     setError("");
     setSuccess("");
 
     const { name, email, password, confirmPassword } = formData;
 
-    if (password !== confirmPassword)
-      return setError("Passwords do not match");
+    if (password !== confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
 
-    if (!isStrongPassword(password))
-      return setError(
-        "Password must be 8+ chars, include uppercase, number & special character"
+    if (!isStrongPassword(password)) {
+      setError(
+        "Password must be 8+ characters and include uppercase, number and special character"
       );
+      return;
+    }
 
     try {
       setLoading(true);
 
-      // Register
-      await axios.post(
-  `${process.env.REACT_APP_API_URL}/register`,
-  { name, email, password }
-);
+      await api.post("/api/auth/register", {
+        name: name.trim(),
+        email: email.trim(),
+        password,
+      });
 
-      setSuccess("Account created! Redirecting to login...");
+      setSuccess("Account created successfully. Redirecting to login...");
 
-      //  redirect to dashboard login (port 3001 if dashboard runs there)
-      // Adjust the URL to wherever your dashboard app is hosted
-   setTimeout(() => {
-  window.location.href = process.env.REACT_APP_DASHBOARD_URL;
-}, 1500);
+      setTimeout(() => {
+        navigate("/login", { replace: true });
+      }, 800);
     } catch (err) {
-      setError(err.response?.data?.message || "Signup failed");
+      setError(
+        err?.response?.data?.message ||
+          "Signup failed. Please try again."
+      );
     } finally {
       setLoading(false);
     }
@@ -72,7 +77,7 @@ function Signup() {
     <div className="auth-container">
       <div className="auth-box">
         <h2>Create your account</h2>
-        <p>Start investing commission-free</p>
+        <p>Start investing with TradeNova</p>
 
         <form onSubmit={handleSignup}>
           <input
@@ -81,30 +86,37 @@ function Signup() {
             placeholder="Full Name"
             value={formData.name}
             onChange={handleChange}
+            autoComplete="name"
             required
           />
+
           <input
             type="email"
             name="email"
             placeholder="Email address"
             value={formData.email}
             onChange={handleChange}
+            autoComplete="email"
             required
           />
+
           <input
             type="password"
             name="password"
             placeholder="Password"
             value={formData.password}
             onChange={handleChange}
+            autoComplete="new-password"
             required
           />
+
           <input
             type="password"
             name="confirmPassword"
             placeholder="Confirm Password"
             value={formData.confirmPassword}
             onChange={handleChange}
+            autoComplete="new-password"
             required
           />
 
@@ -118,14 +130,13 @@ function Signup() {
 
         <p style={{ marginTop: "16px", fontSize: "14px", color: "#666" }}>
           Already have an account?{" "}
-          {/* check this */}
-     <a href={`${process.env.REACT_APP_DASHBOARD_URL}/login`}>
-  Log in
-</a>
+          <Link to="/login" style={{ color: "#387ED1" }}>
+            Log in
+          </Link>
         </p>
       </div>
     </div>
   );
-}
+};
 
 export default Signup;
