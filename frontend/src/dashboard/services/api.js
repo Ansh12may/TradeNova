@@ -45,6 +45,12 @@ export const getBatchRisk = async () => {
   return response.data;
 };
 
+export const checkMLHealth = async () => {
+  const response = await api.get("/api/ml/health");
+  return response.data;
+
+};
+
 export const getStockRisk = async (ticker) => {
   if (!ticker) throw new Error("Ticker is required");
 

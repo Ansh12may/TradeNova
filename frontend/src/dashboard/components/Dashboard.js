@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { checkMLHealth } from "../services/api";
 import { Route, Routes, useLocation } from "react-router-dom";
 
 import WatchList from "./WatchList";
@@ -15,6 +16,13 @@ import "../styles/dashboard.css";
 
 const Dashboard = () => {
   const location = useLocation();
+  useEffect(() => {
+    checkMLHealth().catch((error) => {
+      console.warn("ML service warm-up failed:", error);
+
+    });
+
+  }, []);
   const isRiskPage = location.pathname.startsWith("/dashboard/risk");
 
   return (

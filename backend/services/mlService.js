@@ -41,4 +41,19 @@ const getBatchRisk = async () => {
 
 };
 
-module.exports = {getStockRisk,getBatchRisk};
+const checkMLHealth = async () => {
+    const response = await fetch(
+        `${ML_SERVICE_URL}/health`
+    );
+    if (!response.ok) {
+        const errorText = await response.text();
+
+        throw new Error(
+            `ML health check failed (${response.status}): ${errorText}`
+        );
+    }
+
+    return await response.json();
+};
+
+module.exports = {getStockRisk,getBatchRisk,checkMLHealth};
