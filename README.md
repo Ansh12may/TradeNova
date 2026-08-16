@@ -1,47 +1,43 @@
-#  TradeNova – MERN Stack Trading Simulation Platform
+# TradeNova — ML-Powered Portfolio Risk Engine
 
-TradeNova is a full-stack MERN application that allows users to simulate stock trading, manage portfolios, and track transactions in a clean and interactive dashboard.
+TradeNova is an AI/ML-powered portfolio analytics and risk analysis platform designed to evaluate stock and portfolio risk using quantitative market features and machine learning models.
 
----
+The project focuses on building and deploying an end-to-end **ML inference system**, rather than simply creating a stock trading UI.
 
-##  Live Demo
+##  Key Features
 
-🔗 Frontend: https://tradenova-1-bk9c.onrender.com
-🔗 Backend API: https://tradenova-ykds.onrender.com
-
----
-
-## 📌 Features
-- User Authentication (Signup / Login)
--  Dashboard with portfolio overview
--  Buy & Sell stock simulation
--  Real-time-like trade tracking (mock data / API-based)
--  Order history management
--  Responsive UI for smooth user experience
+-  Stock-level risk analysis
+-  Portfolio-level risk assessment
+-  Machine learning based risk prediction
+-  Technical and statistical market features
+-  Dedicated FastAPI ML inference service
+-  Node.js backend acting as an API gateway
+-  React dashboard for visualizing ML results
+-  Production deployment with independent services
 
 ---
 
-##  Tech Stack
+##  AI / ML Engineering
 
-### Frontend:
-- React.js
-- React Router
-- Axios
-- CSS
+The core of TradeNova is a separate ML service responsible for risk analysis and inference.
 
-### Backend:
-- Node.js
-- Express.js
+### ML Pipeline
 
-### Database:
-- MongoDB (Mongoose)
-
----
-
-##  Installation & Setup
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/<your-username>/tradenova.git
-cd tradenova
+```text
+Market Data
+    ↓
+Data Preprocessing
+    ↓
+Feature Engineering
+    ↓
+Statistical / Technical Features
+    ↓
+ML Risk Model
+    ↓
+Risk Score / Classification
+    ↓
+FastAPI Inference API
+    ↓
+TradeNova Backend
+    ↓
+Dashboard
